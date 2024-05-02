@@ -2,13 +2,14 @@ package com.uri.progweb.userdep.controllers;
 
 import com.uri.progweb.userdep.entities.User;
 import com.uri.progweb.userdep.repositories.UserRepository;
+import com.uri.progweb.userdep.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Objects;
 
 @RestController
 @RequestMapping(value= "/users")
@@ -17,39 +18,40 @@ public class UserController {
     @Autowired
     private UserRepository repository;
 
+    @Autowired
+    private UserService service;
+
     @GetMapping
-    public List<User> findAll() {
-        List<User> result = repository.findAll();
-        return result;
+    public ResponseEntity<List<User>> findAll() {
+        List<User> result = service.findAll();
+        return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(result);
     }
 
     @GetMapping(value = "/{id}")
-    public User findById(@PathVariable Long id) {
-        User result = repository.findById(id).get();
-        return result;
+    public ResponseEntity<User> findById(@PathVariable Long id) {
+
+        User result = service.findById(id);
+        return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(result);
     }
 
     @PostMapping
-    public User create(@RequestBody User user) {
-        User result = repository.save(user);
-        return result;
+    public ResponseEntity<User> create(@RequestBody User user) {
+        User result = service.create(user);
+        return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(result);
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Object> delete(@PathVariable Long id) {
-        User user = repository.findById(id).get();
-        repository.delete(user);
+        service.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
     @PutMapping(value = "/{id}")
-    public User update(@PathVariable Long id,
-                                         @RequestBody User newUser) {
-        User currentUser = repository.findById(id).get();
-        currentUser.setName(newUser.getName());
-        currentUser.setEmail(newUser.getEmail());
-        currentUser.setDepartment(newUser.getDepartment());
-        User user = repository.save(currentUser);
-        return user;
+    public ResponseEntity<User> update(@PathVariable Long id,
+                       @RequestBody User newUser) {
+
+        User user = service.update(id, newUser);
+
+        return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(user);
     }
 }
