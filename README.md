@@ -55,6 +55,17 @@ Vamos construir um pequeno sistema (API REST) de usuários e departamentos, com 
 - Configurar o banco de dados H2
 - Criar os endpoints da API REST
 
+### Spring Boot Application Architecture
+
+![Image](imgs/mvc-java-spring.jpeg "Spring Boot Application Architecture")
+
+- o Cliente faz uma solicitação HTTP (GET, POST, PUT, DELETE...);
+- O controller é responsável por expor as APIs, ele mapeia as solicitações, trata e processa os identificadores e chama os services;
+- Os services recebe os dados dos controllers e executam as lógicas de negócios;
+- Os services executam os métodos JPA dos modelos mapeados nos repositories para fazer as operações básicas no banco de dados;
+- Repository faz o mapeamento dos modelos de dados com as tabelas no banco de dados;
+- DTOs ou Entidades são os modelos de dados representados em objetos;
+
 ### Trechos de código para copiar
 
 #### Configuração do Maven Resources Plugin
