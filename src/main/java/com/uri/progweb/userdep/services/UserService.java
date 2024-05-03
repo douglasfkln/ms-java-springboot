@@ -1,15 +1,13 @@
 package com.uri.progweb.userdep.services;
 
 import com.uri.progweb.userdep.entities.User;
+import com.uri.progweb.userdep.exceptions.UserNotFoundException;
 import com.uri.progweb.userdep.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -23,8 +21,12 @@ public class UserService {
     }
 
     public User findById(Long id) {
-        User result = repository.findById(id).get();
-        return result;
+        Optional<User> result = repository.findById(id);
+        if (result.isPresent()) {
+            return result.get();
+        }
+
+        throw new UserNotFoundException();
     }
 
     public User create(User user) {
