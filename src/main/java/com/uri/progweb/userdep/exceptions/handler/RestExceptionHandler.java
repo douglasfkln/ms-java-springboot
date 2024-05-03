@@ -1,5 +1,6 @@
 package com.uri.progweb.userdep.exceptions.handler;
 
+import com.uri.progweb.userdep.exceptions.ErrorMessage;
 import com.uri.progweb.userdep.exceptions.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +12,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(UserNotFoundException.class)
-    private ResponseEntity<String> userNotFoundHandler(UserNotFoundException exception) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado!");
+    private ResponseEntity<ErrorMessage> userNotFoundHandler(UserNotFoundException exception) {
+        ErrorMessage response = new ErrorMessage(HttpStatus.NOT_FOUND, exception.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
     }
 
 }
