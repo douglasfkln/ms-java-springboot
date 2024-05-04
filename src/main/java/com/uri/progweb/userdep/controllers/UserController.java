@@ -1,7 +1,6 @@
 package com.uri.progweb.userdep.controllers;
 
 import com.uri.progweb.userdep.entities.User;
-import com.uri.progweb.userdep.repositories.UserRepository;
 import com.uri.progweb.userdep.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,9 +13,6 @@ import java.util.List;
 @RestController
 @RequestMapping(value= "/users")
 public class UserController {
-
-    @Autowired
-    private UserRepository repository;
 
     @Autowired
     private UserService service;

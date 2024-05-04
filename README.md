@@ -1,22 +1,5 @@
 # Getting Started
 
-### Reference Documentation
-For further reference, please consider the following sections:
-
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.2.5/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.2.5/maven-plugin/reference/html/#build-image)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/3.2.5/reference/htmlsingle/index.html#web)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/3.2.5/reference/htmlsingle/index.html#data.sql.jpa-and-spring-data)
-
-### Guides
-The following guides illustrate how to use some features concretely:
-
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-
 >  Veja como é simples construir uma API REST com banco de dados usando Java e Spring Boot
 
 ### Pré-requisitos
@@ -40,6 +23,8 @@ Vamos construir um pequeno sistema (API REST) de usuários e departamentos, com 
 - Buscar todos usuários
 - Buscar um usuário pelo seu id
 - Inserir um novo usuário
+- Atualizar um usuário existente
+- Deletar um usuário
 
 ![Image](imgs/dominio.png "Modelo conceitual")
 
