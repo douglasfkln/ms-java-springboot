@@ -1,5 +1,6 @@
 package com.uri.progweb.userdep.entities;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,6 +12,9 @@ public class User {
     private Long id;
     private String name;
     private String email;
+
+    // @Column(name = "nome_da_coluna")
+    // @JsonAlias("nomedocampo")
 
     @ManyToOne
     @JoinColumn(name = "department_id")
