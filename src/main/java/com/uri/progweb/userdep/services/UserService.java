@@ -35,12 +35,13 @@ public class UserService {
     }
 
     public void delete(Long id) {
-        User user = findById(id);
-        repository.delete(user);
+        // User user = findById(id);
+        // repository.delete(user);
+        repository.deleteById(id);
     }
 
     public User update(Long id, User newUser) {
-        User currentUser = repository.findById(id).get();
+        User currentUser = findById(id);
         currentUser.setName(newUser.getName());
         currentUser.setEmail(newUser.getEmail());
         currentUser.setDepartment(newUser.getDepartment());
