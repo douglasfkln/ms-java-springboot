@@ -16,6 +16,14 @@
 - Criar um pequeno sistema com ferramentas e práticas de mercado
 - Dar mais um passo em direção à preparação para o mercado
 
+### Passos da aula
+
+- Criar o projeto
+- Implementar o modelo de domínio
+- Mapeamento objeto-relacional com JPA
+- Configurar o banco de dados H2
+- Criar os endpoints da API REST
+
 ### Visão geral do sistema
 
 Vamos construir um pequeno sistema (API REST) de usuários e departamentos, com os seguintes casos de uso:
@@ -32,13 +40,6 @@ Vamos construir um pequeno sistema (API REST) de usuários e departamentos, com 
 
 ![Image](imgs/objetos.png "Objetos")
 
-### Passos da aula
-
-- Criar o projeto
-- Implementar o modelo de domínio
-- Mapeamento objeto-relacional com JPA
-- Configurar o banco de dados H2
-- Criar os endpoints da API REST
 
 ### Spring Boot Application Architecture
 
